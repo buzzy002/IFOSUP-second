@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "T6fw4vmUGjU=",
+  "success": true,
+  "projectFilePath": "/home/buzzy/Documents/IFOSUP/2e/IFOSUP-second/ProgrammationOrienteeObjet/S1Ex/S1Ex.csproj",
+  "expectedPackageFiles": [
+    "/home/buzzy/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.8/microsoft.aspnetcore.app.ref.9.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
