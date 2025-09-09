@@ -32,3 +32,57 @@ echo strtoupper($claudyVousDitBonjour);
 echo "\n";
 
 ?>
+
+
+<?php
+
+// Exercices - Part 02
+
+$films = [
+    'horreur' => [
+        [
+            'nomDuFilm' => 'Hellraiser',
+            'realisateur' => 'Clive Barker',
+            'annee' => '1987'
+        ],
+        [
+            'nomDuFilm' => 'La Colline a des Yeux',
+            'realisateur' => 'Alexandre Aja',
+            'annee' => '2006'
+        ]
+    ],
+    'comedie' => [
+        [
+            'nomDuFilm' => 'Dikkenek',
+            'realisateur' => 'Olivier Van Hoofstadt',
+            'annee' => '2006'
+        ],
+        [
+            'nomDuFilm' => 'Le Dîner de cons',
+            'realisateur' => 'Francis Veber',
+            'annee' => '1998'
+        ]
+    ],
+    'scienceFiction' => [
+        [
+            'nomDuFilm' => 'Blade Runner 2049',
+            'realisateur' => 'Denis Villeneuve',
+            'annee' => '2017'
+        ],
+        [
+            'nomDuFilm' => 'Dune',
+            'realisateur' => 'Denis',
+        ],
+        [
+            'nomDuFilm' => 'Minority Report',
+            'realisateur' => 'Steven Spielberg',
+            'annee' => '2002'
+        ]
+    ]
+];
+
+print_r($films);
+
+echo($films['horreur'][1]['annee'] . "\n");
+
+?>
