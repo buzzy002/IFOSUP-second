@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProgrammationOrienteeObjet", "ProgrammationOrienteeObjet", "{16A63314-3B1E-474D-811B-4B29746F38D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S1Ex", "IFOSUP-second\ProgrammationOrienteeObjet\S1Ex\S1Ex.csproj", "{BF777E92-81CC-4BAE-A346-D43FA1138222}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF777E92-81CC-4BAE-A346-D43FA1138222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF777E92-81CC-4BAE-A346-D43FA1138222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF777E92-81CC-4BAE-A346-D43FA1138222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF777E92-81CC-4BAE-A346-D43FA1138222}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16A63314-3B1E-474D-811B-4B29746F38D2} = {1034DBAA-AEB3-4AE9-BBC9-A90B4BE55724}
+		{BF777E92-81CC-4BAE-A346-D43FA1138222} = {16A63314-3B1E-474D-811B-4B29746F38D2}
+	EndGlobalSection
+EndGlobal
