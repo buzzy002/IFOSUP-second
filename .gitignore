@@ -1,1 +1,45 @@
+# Sorties de build
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Tt]emp/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
 
+# Résultats de tests
+TestResults/
+*.trx
+
+# Fichiers utilisateur et IDE
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Packages NuGet (restaurables)
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Binaires et symboles
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.tmp
+
+# Données locales ASP.NET
+App_Data/
+
+# OS / fichiers divers
+.DS_Store
+Thumbs.db
