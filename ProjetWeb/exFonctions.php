@@ -128,6 +128,143 @@ function ajouterTVA(float $prixHT, $tva) : float {
 
 }
 
-echo ajouterTva(100, 21);
+echo ajouterTva(100, 21) . "\n";
+echo ajouterTva(100, 12);
+
+?>
+
+<?php
+
+// Exo-fonctions-05
+function calculerMontantTvaPrixTTC(float $prixTTC, float $tva) : float {
+
+    return ($prixTTC * $tva) / (100 + $tva);
+
+}
+
+function retirerTva(float $prixTTC, float $tva) : float {
+
+    $montantTVA = calculerMontantTvaPrixTTC($prixTTC, $tva);
+
+    return round(($prixTTC - $montantTVA), 3);
+
+}
+
+echo retirerTva(100, 21) . "\n";
+echo retirerTva(100, 12);
+
+?>
+
+<?php
+
+// Exo-fonctions-06
+function estValideEmail(string $email) : bool {
+
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true;
+    } 
+    return false;
+
+}
+
+$estEmailRempli = estValideEmail("claudy.focan@gmail.com");
+var_dump($estEmailRempli);
+
+$estEmailRempli = estValideEmail("claudy.focan");
+var_dump($estEmailRempli);
+
+?>
+
+<?php
+
+// Exo-fonctions-07
+function respecteLongueurMinimale(string $entreeUtilisateur, int $longueurMin) : bool {
+
+    return mb_strlen($entreeUtilisateur) >= $longueurMin;
+
+}
+
+$estLongueurValide = respecteLongueurMinimale("saperlipopette", 2);
+var_dump($estLongueurValide );
+
+$estLongueurValide = respecteLongueurMinimale("saperlipopette", 30);
+var_dump($estLongueurValide );
+
+?>
+
+<?php
+
+// Exo-fonctions-08
+function respecteLongueurMaximale(string $entreeUtilisateur, int $longueurMax) : bool {
+
+    return mb_strlen($entreeUtilisateur) <= $longueurMax;
+
+}
+
+$estLongueurValide = respecteLongueurMaximale("saperlipopette", 30);
+var_dump($estLongueurValide );
+
+$estLongueurValide = respecteLongueurMaximale("saperlipopette", 2);
+var_dump($estLongueurValide );
+
+?>
+
+<?php
+
+// Exo-fonctions-09
+function respecteLongueurMinEtMax(string $entreeUtilisateur, int $longueurMin, int $longueurMax) : bool {
+
+    return mb_strlen($entreeUtilisateur) >= $longueurMin && mb_strlen($entreeUtilisateur) <= $longueurMax;
+
+}
+
+$estLongueurValide = respecteLongueurMinEtMax("saperlipopette", 2, 30);
+var_dump($estLongueurValide);
+
+$estLongueurValide = respecteLongueurMinEtMax("saperlipopette", 2, 8);
+var_dump($estLongueurValide);
+
+?>
+
+<?php
+
+// Exo-fonctions-10
+function estRempli(string $nomDuChampnom, array $entreesUtilisateur) : bool {
+
+    $champTrouve = "";
+    if(!array_key_exists($nomDuChampnom, $entreesUtilisateur)) {
+        return false;
+    }
+
+    $champTrouve = trim($entreesUtilisateur[$nomDuChampnom]);
+    if($champTrouve == "" || empty($champTrouve)) {
+        return false;
+    }
+    
+    return true;
+}
+
+$entreesUtilisateur = [
+    'nom' => 'Claudy',
+    'email' => 'claudy.focan@gmail.com'
+];
+
+$estNomRempli = estRempli("nom", $entreesUtilisateur);
+var_dump($estNomRempli);
+
+$estPrenomRempli = estRempli("prenom", $entreesUtilisateur);
+var_dump($estPrenomRempli);
+
+?>
+
+<?php
+
+// Exo-fonctions-11
+function verifierValiditeChamps(array $regleDesChamps, array $entreesUtilisateur) : array {
+
+    $messageErreur = [];
+    
+
+}
 
 ?>
