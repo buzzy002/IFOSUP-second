@@ -236,7 +236,7 @@ function estRempli(string $nomDuChampnom, array $entreesUtilisateur) : bool {
         return false;
     }
 
-    $champTrouve = trim($entreesUtilisateur[$nomDuChampnom]);
+    $champTrouve = trim(strval($entreesUtilisateur[$nomDuChampnom]));
     if($champTrouve == "" || empty($champTrouve)) {
         return false;
     }
@@ -263,8 +263,60 @@ var_dump($estPrenomRempli);
 function verifierValiditeChamps(array $regleDesChamps, array $entreesUtilisateur) : array {
 
     $messageErreur = [];
-    
-
+    foreach ($regleDesChamps as $key=>$value) {
+        if($value['requis'] && !estRempli($key, $entreesUtilisateur)) {
+            $messageErreur[$key] = 'Le champ est requis';
+        } else {
+            if(estRempli('type', $value)) {
+                if($value['type'] == 'email' && !estValideEmail($entreesUtilisateur['email'])) {
+                    $messageErreur[$key] = "Email invalide!";
+                }
+            } 
+            
+            if(estRempli('longueurMin', $value) && estRempli('longueurMax', $value)) {
+                if(!respecteLongueurMinEtMax($entreesUtilisateur[$key], $value['longueurMin'], $value['longueurMax'])) {
+                    $messageErreur[$key] = "Ce champ doit doit comprendre entre {$value['longueurMin']} et {$value['longueurMax']} caractères!";
+                }
+            } elseif(estRempli('longueurMin', $value)) {
+                if(!respecteLongueurMinimale($entreesUtilisateur[$key], $value['longueurMin'])) {
+                    $messageErreur[$key] = "Ce champ doit comprendre au moins {$value['longueurMin']} caractères!";
+                }
+            } elseif(estRempli('longueurMax', $value)) {
+                if(!respecteLongueurMaximale($entreesUtilisateur[$key], $value['longueurMax'])) {
+                    $messageErreur[$key] = "Ce champ doit comprendre au maximum {$value['longueurMax']} caractères!";
+                }
+            }
+        }
+    }
+    return $messageErreur;
 }
+
+$regleDesChamps = [
+    'nom' => [
+        'requis' => true,
+        'longueurMin' => 2,
+        'longueurMax' => 255
+    ],
+    'email' => [
+        'requis' => true,
+        'type' => 'email'
+    ]
+];
+
+$entreesUtilisateurValides = [
+    'nom' => 'Claudy',
+    'email' => 'claudy.focan@gmail.com'
+];
+
+$entreesUtilisateurInvalides = [
+    'nom' => 'a',
+    'email' => 'claudy.focan'
+];
+
+$erreurs = verifierValiditeChamps($regleDesChamps, $entreesUtilisateurValides);
+print_r($erreurs);
+
+$erreurs = verifierValiditeChamps($regleDesChamps, $entreesUtilisateurInvalides);
+print_r($erreurs);
 
 ?>
