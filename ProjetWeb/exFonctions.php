@@ -104,7 +104,7 @@ function afficherMoyenne2(array $nombres) : void {
     $invalidData = array_values(array_diff($nombres, $moy[1]));
     $strData = convertirTableauEnChaineDeCaracteres2($nombres);
 
-    echo "La moyenne de [ $strData ] est $moy[0] ( [ " . convertirTableauEnChaineDeCaracteres2($invalidData) . " ] étant invalides)";
+    echo "La moyenne de [ $strData ] est $moy[0] ( [ " . convertirTableauEnChaineDeCaracteres2($invalidData) . " ] étant invalides) \n";
 
 }
 
@@ -273,16 +273,16 @@ function verifierValiditeChamps(array $regleDesChamps, array $entreesUtilisateur
                 }
             } 
             
-            if(estRempli('longueurMin', $value) && estRempli('longueurMax', $value)) {
+            if(estRempli('longueurMin', $value) && estRempli('longueurMax', $value) && $key == 'nom') {
                 if(!respecteLongueurMinEtMax($entreesUtilisateur[$key], $value['longueurMin'], $value['longueurMax'])) {
                     $messageErreur[$key] = "Ce champ doit doit comprendre entre {$value['longueurMin']} et {$value['longueurMax']} caractères!";
                 }
             } elseif(estRempli('longueurMin', $value)) {
-                if(!respecteLongueurMinimale($entreesUtilisateur[$key], $value['longueurMin'])) {
+                if(!respecteLongueurMinimale($entreesUtilisateur[$key], $value['longueurMin']) && $key == 'nom') {
                     $messageErreur[$key] = "Ce champ doit comprendre au moins {$value['longueurMin']} caractères!";
                 }
             } elseif(estRempli('longueurMax', $value)) {
-                if(!respecteLongueurMaximale($entreesUtilisateur[$key], $value['longueurMax'])) {
+                if(!respecteLongueurMaximale($entreesUtilisateur[$key], $value['longueurMax']) && $key == 'nom') {
                     $messageErreur[$key] = "Ce champ doit comprendre au maximum {$value['longueurMax']} caractères!";
                 }
             }
@@ -318,5 +318,34 @@ print_r($erreurs);
 
 $erreurs = verifierValiditeChamps($regleDesChamps, $entreesUtilisateurInvalides);
 print_r($erreurs);
+
+?>
+
+<?php
+
+// Exercices - Part 02
+// Exo-fonctions-12
+function genererSuiteFibonacci(int $n) : array {
+
+    if($n <= 0) {
+        return [];
+    }
+    if($n == 1) {
+        return [0];
+    }
+    if($n == 2) {
+        return [0, 1];
+    }
+
+    $table = genererSuiteFibonacci($n - 1);
+    $table[] = $table[$n - 2] + $table[$n - 3];
+    return $table;
+    
+}
+
+$n = 10;
+$suiteFibo = genererSuiteFibonacci($n);
+echo "Suite de Fibonacci jusqu'au terme F($n) : " . "\n";
+print_r($suiteFibo);
 
 ?>
