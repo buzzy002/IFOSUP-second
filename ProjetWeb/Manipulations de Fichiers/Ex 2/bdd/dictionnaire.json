@@ -1,0 +1,20 @@
+{
+    "nourriture": [
+        "pomme",
+        "pain",
+        "fromage",
+        "poire"
+    ],
+    "animaux": [
+        "chien",
+        "chat",
+        "oiseau",
+        "grenouille"
+    ],
+    "professions": [
+        "m\u00e9decin",
+        "enseignant",
+        "policier",
+        "couvreur"
+    ]
+}
