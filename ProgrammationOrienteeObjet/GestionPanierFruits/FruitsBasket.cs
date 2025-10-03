@@ -13,16 +13,6 @@ class fruitsBasket {
 
     }
 
-    public string listFruitsToString() {
-
-        StringBuilder stringbuilder = new StringBuilder();
-
-        foreach (string? fruit in listFruits) { stringbuilder.Append($"{fruit} " ?? ""); }
-
-        return stringbuilder.ToString();
-
-    }
-
     /// <summary>
     /// Add a fruit to the array containing all of the fruits
     /// </summary>
@@ -40,6 +30,7 @@ class fruitsBasket {
         if (numberOfNullElements == 0) return -2;
 
         listFruits[5 - numberOfNullElements] = fruit;
+        numberOfNullElements--;
         return 0;
 
     }
@@ -61,7 +52,7 @@ class fruitsBasket {
         if (numberOfNullElements == 5) return -1;
         if (!listFruits.Contains(fruit)) return -2;
 
-        for (int i = 0; i < numberOfNullElements; i++) {
+        for (int i = 0; i < 5 - numberOfNullElements; i++) {
 
             if (listFruits[i] == fruit) {
 
@@ -79,5 +70,17 @@ class fruitsBasket {
     }
 
     public bool isInArray(string fruit) { return listFruits.Contains(fruit); }
+
+    public string listFruitsToString() {
+
+        StringBuilder stringbuilder = new StringBuilder();
+
+        if (numberOfNullElements == 5) return string.Empty;
+
+        foreach (string? fruit in listFruits) { stringbuilder.Append($"{fruit} " ?? ""); }
+
+        return stringbuilder.ToString();
+
+    }
 
 }
