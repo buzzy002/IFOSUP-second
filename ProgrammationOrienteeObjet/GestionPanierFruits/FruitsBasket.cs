@@ -52,17 +52,15 @@ class fruitsBasket {
         if (numberOfNullElements == 5) return -1;
         if (!listFruits.Contains(fruit)) return -2;
 
-        for (int i = 0; i < 5 - numberOfNullElements; i++) {
-
-            if (listFruits[i] == fruit) {
-
+        for (int i = 0; i < 5 - numberOfNullElements; i++)
+        {
+            if (listFruits[i] == fruit)
+            {
                 listFruits[i] = listFruits[5 - numberOfNullElements - 1];
                 listFruits[5 - numberOfNullElements - 1] = null;
                 numberOfNullElements++;
                 return 0;
-
             }
-
         }
 
         return -3;
