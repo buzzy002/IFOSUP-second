@@ -3,7 +3,7 @@
   margin: (x: 2.5cm, y: 2.5cm),
   fill: white,
   numbering: "1",
-  number-align: right,
+  number-align: center,
 )
 
 #set text(
@@ -101,7 +101,7 @@
       above: 0pt,
       below: 0pt
     )[
-      #set text(fill: white, size: 9pt, font: "Droid Sans")
+      #set text(fill: white, size: 9pt, font: "New Computer Modern")
       #filename
     ]
     // File content
@@ -111,7 +111,7 @@
       inset: 10pt,
       radius: (bottom: 4pt),
     )[
-      #set text(size: 9pt, font: "Droid Sans")
+      #set text(size: 9pt, font: "New Computer Modern")
       #raw(content, lang: none, block: true)
     ]
   ]
@@ -137,7 +137,7 @@
     
     #text(size: 12pt)[
       5IBRE-1 — Bases des réseaux \
-      Année académique 2024-2025
+      Année académique 2025-2026
     ]
   ]
   
@@ -250,6 +250,7 @@ sudo systemctl status ssh
 
 Avec Netplan, nous allons pouvoir assurer une accessibilité constante du serveur via une adresse IP fixe.
 
+
 ```sh
 sudo nano /etc/netplan/50-netcfg.yaml
 ```
@@ -293,7 +294,7 @@ sudo fdisk /dev/sdd
 sudo fdisk /dev/sde
 ```
 
-Pour chaque commande, suivre ces options de `fdisk` :
+Pour les 4 commandes, suivre ces options de `fdisk` :
 1. `n -> new partition`
 2. `p -> primary`
 3. `1 -> numero 1`
